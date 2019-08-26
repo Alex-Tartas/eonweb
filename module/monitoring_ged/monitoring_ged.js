@@ -444,6 +444,7 @@ $(document).ready(function(){
 			action = "edit";
 		}
 		var group_itsm = $("#group").val();
+		var urgency_itsm = $("#urgency").val();
 
 		$.ajax({
 			url: "ged_actions.php",
@@ -453,7 +454,8 @@ $(document).ready(function(){
 				global_action: global_action,
 				selected_events: events,
 				comments: comments,
-				group: group_itsm
+				group: group_itsm,
+				urgency: urgency_itsm
 			},
 			success: function(response){
 				$(".modal-body #event-message").html(response);
@@ -482,7 +484,8 @@ $(document).ready(function(){
 				action: "confirm",
 				global_action: global_action,
 				selected_events: selected_events,
-				group:null
+				group:null,
+				urgency:null
 			},
 			success: function(response){
 				global_action = "";

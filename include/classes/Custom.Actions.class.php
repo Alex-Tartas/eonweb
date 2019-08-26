@@ -28,7 +28,7 @@ class CustomActions
 	/**
 	 * Ged Acknowledge
 	 */
-	public function ged_acknowledge($selected_events, $queue, $group=null)
+	public function ged_acknowledge($selected_events, $queue, $group=null, $urgency=null)
 	{
         global $array_ged_queues;
         global $database_ged;
@@ -55,6 +55,9 @@ class CustomActions
 		$array_vars=array();
 		if(isset($group)) {
 			$array_vars["%GROUP%"]=$group;
+		}
+		if(isset($urgency)) {
+			$array_vars["%URGENCY%"]=$urgency;
 		}
             }
 	

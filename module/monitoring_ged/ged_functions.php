@@ -284,6 +284,13 @@ function edit($selected_events, $queue)
                      	   <option value='3'>GROUPE_DBA</option>
                      	   <option value='113'>GROUPE_ESHOP_RUN</option>
                      	 </select>
+                        <label for='group'>Urgence : </label>
+                        <select class='form-control' id='urgency'>
+                           <option value='5'>Très haute</option>
+                           <option value='4'>Haute</option>
+                           <option value='3' selected>Moyenne</option>
+                           <option value='2'>Basse</option>
+                         </select>
 			<label>".getLabel("label.add_comment")."</label>
 			<textarea id='event-comments' class='form-control textarea' rows='10'>".$event["comments"]."</textarea>
 		</div>
