@@ -147,7 +147,7 @@ function report_itsm($detail, $descr, $array_vars=array()){
 	$group = curl_call(array('Content-Type: application/'.$extension.';charset=UTF-8',$token_app,$header.$token_session->session_token),$url."/Ticket/".$ticket_id."/group_ticket",$file2,"post");
         var_dump($group);
 
-        return true;
+        return $ticket_id;
 
     }else return false;
 }

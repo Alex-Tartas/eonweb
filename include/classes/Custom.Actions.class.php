@@ -63,6 +63,17 @@ class CustomActions
 	
             $result = report_itsm($detail,$description,$array_vars);
 	    var_dump($result);
+
+	    /** Insert Ticket ID in GED Comment **/
+	    //$rq = 'UPDATE ged.nagios_queue_active SET comments ="Ticket_ID: '.$result.'" + comments WHERE id='.$event["id"].';';
+	    $rq = 'UPDATE ged.nagios_queue_active SET comments = CONCAT("Ticket_ID: '.$result.'",comments) WHERE id='.$event["id"].';';
+		try{
+        	$res = sqlrequest("ged",$rq);
+        	return $res;
+    	}catch(Exception $e) {
+        	return 'Exception reçue : '.$e->getMessage().'\n';
+    	}
+	    
             return $result;
         }else return false;
 	}
