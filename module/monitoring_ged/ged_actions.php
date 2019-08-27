@@ -71,7 +71,6 @@ if(!isset($urgency)) { $urgency=null; }
 			break;
 		case 'confirm':
 			if($global_action == "4"){
-				$CustomActions->ged_acknowledge($selected_events, $queue, $group, $urgency);
 				acknowledge($selected_events, $queue);
 			} elseif($global_action == "5") {
 				delete($selected_events, $queue);
