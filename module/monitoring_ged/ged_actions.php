@@ -52,6 +52,9 @@ if(!isset($urgency)) { $urgency=null; }
 		case "1":
 			edit($selected_events, $queue);
 			break;
+		case "6":
+			edit($selected_events, $queue);
+			break;
 		case 'edit':
 			editAllEvents($selected_events, $queue, $comments);
 			$CustomActions->ged_edit($selected_events, $queue, $comments);

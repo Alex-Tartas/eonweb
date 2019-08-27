@@ -273,7 +273,8 @@ function edit($selected_events, $queue)
 	$sql = "SELECT comments FROM ".$ged_type."_queue_".$queue." WHERE id = ?";
 	$result = sqlrequest($database_ged, $sql, false, array("s",(string)$id));
 	$event = mysqli_fetch_assoc($result);
-
+	
+	//TODO (if itsm activated ) 
 	echo "
 	<form id='edit-event-form'>
 		<div class='form-group'>

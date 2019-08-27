@@ -356,6 +356,8 @@ $(document).ready(function(){
 						$("#modal-nav, #own-btns, #ack-btns, #itsm-btns").show(); break;
 					case "1":
 						$("#modal-nav, #edit-btns, #own-btns, #itsm-btns, #ack-btns").show(); break;
+					case "6" :
+						$("#modal-nav, #edit-btns, #own-btns, #itsm-btns, #ack-btns").show(); break;
 					default:
 						$("#event-validation").show(); break;
 				}
@@ -363,7 +365,7 @@ $(document).ready(function(){
 				$("#event-message").empty();
 			},
 			success: function(response){
-				if(action == 0 || action == 1){
+				if(action == 0 || action == 1 || action == 6){
 					changeModalState(selected_events[event_index]);
 					var event_infos = selected_events[event_index].split(":");
 					var host_name = event_infos[3];
@@ -422,8 +424,14 @@ $(document).ready(function(){
 			global_action = 6;
 		}
 		
-		$("#confirmation-modal-title").html(dictionnary[action_title]);
-		$("#confirmation-modal").modal();
+		if(global_action== 6){
+			$('#confirmation-event-validation').click();
+
+		}else{
+			$("#confirmation-modal-title").html(dictionnary[action_title]);
+			$("#confirmation-modal").modal();
+		}
+		
 	});
 	
 	// click to confirm event edit/own/ack
