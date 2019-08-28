@@ -47,10 +47,12 @@ if(insert_itsm_var("itsm_url",$_POST['itsm_url'])){
     $message .= "<div class=\"alert alert-success\" role=\"alert\">".$_POST['itsm_url']." succesfully saved.</div>";
 }else $message .= "<div class=\"alert alert-danger\" role=\"alert\">".$_POST['itsm_url']." failed to be saved.</div>";
 
-if(pathinfo($_FILES["fileName"]["name"], PATHINFO_EXTENSION)=="json"){
+if (isset($_POST['itsm_app_token'])){
     if(insert_itsm_var("itsm_app_token",$_POST['itsm_app_token'])){
         $message .= "<div class=\"alert alert-success\" role=\"alert\">".$_POST['itsm_app_token']." succesfully saved.</div>";
     }else $message .= "<div class=\"alert alert-danger\" role=\"alert\">".$_POST['itsm_app_token']." failed to be saved.</div>";
+}
+if (isset($_POST['itsm_user_token'])){
     if(insert_itsm_var("itsm_user_token",$_POST['itsm_user_token'])){
         $message .= "<div class=\"alert alert-success\" role=\"alert\">".$_POST['itsm_user_token']." succesfully saved.</div>";
     }else $message .= "<div class=\"alert alert-danger\" role=\"alert\">".$_POST['itsm_user_token']." failed to be saved.</div>";    
